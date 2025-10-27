@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-## Simple VPC module with:
+## Simple VPC module
 - Default VPC route table ensures privacy for each new subnet
 - 2 AZs with public and private subnets for each
 - Single AZ NAT Gateway (No HA setup!)
