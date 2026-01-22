@@ -3,7 +3,7 @@
 resource "aws_vpc_endpoint" "interface_endpoint_s3" {
   count               = var.interface_endpoint_s3 ? 1 : 0
   vpc_id              = aws_vpc.main.id
-  subnet_ids          = data.aws_subnets.private.ids
+  subnet_ids          = values(aws_subnet.private)[*].id
   service_name        = "com.amazonaws.${var.region}.s3"
   vpc_endpoint_type   = "Interface"
   private_dns_enabled = true
@@ -23,7 +23,7 @@ resource "aws_vpc_endpoint_subnet_association" "association_endpoint_s3" {
 resource "aws_vpc_endpoint" "interface_endpoint_ssm" {
   count               = var.interface_endpoint_ssm ? 1 : 0
   vpc_id              = aws_vpc.main.id
-  subnet_ids          = data.aws_subnets.private.ids
+  subnet_ids          = values(aws_subnet.private)[*].id
   vpc_endpoint_type   = "Interface"
   service_name        = "com.amazonaws.${var.region}.ssm"
   private_dns_enabled = true
@@ -40,7 +40,7 @@ resource "aws_vpc_endpoint_subnet_association" "association_endpoint_ssm" {
 resource "aws_vpc_endpoint" "interface_endpoint_ssmmsg" {
   count               = var.interface_endpoint_ssm ? 1 : 0
   vpc_id              = aws_vpc.main.id
-  subnet_ids          = data.aws_subnets.private.ids
+  subnet_ids          = values(aws_subnet.private)[*].id
   vpc_endpoint_type   = "Interface"
   service_name        = "com.amazonaws.${var.region}.ssmmessages"
   private_dns_enabled = true
@@ -57,7 +57,7 @@ resource "aws_vpc_endpoint_subnet_association" "association_endpoint_ssmmsg" {
 resource "aws_vpc_endpoint" "interface_endpoint_ec2msg" {
   count               = var.interface_endpoint_ssm ? 1 : 0
   vpc_id              = aws_vpc.main.id
-  subnet_ids          = data.aws_subnets.private.ids
+  subnet_ids          = values(aws_subnet.private)[*].id
   vpc_endpoint_type   = "Interface"
   service_name        = "com.amazonaws.${var.region}.ec2messages"
   private_dns_enabled = true

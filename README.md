@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-## Simple VPC module
+## Simple VPC module with:
 - Default VPC route table ensures privacy for each new subnet
 - 2 AZs with public and private subnets for each
 - Single AZ NAT Gateway (No HA setup!)
@@ -17,7 +17,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.13.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.4 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.18.0 |
 
 ## Providers
@@ -54,7 +54,5 @@
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | Module VPC id. |
+No outputs.
 <!-- END_TF_DOCS -->

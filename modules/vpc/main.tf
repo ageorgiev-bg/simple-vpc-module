@@ -1,29 +1,3 @@
-# Subnet filtration data
-data "aws_subnets" "public" {
-  filter {
-    name   = "vpc-id"
-    values = [aws_vpc.main.id]
-  }
-  tags = {
-    subnet_type = "public"
-  }
-
-  depends_on = [aws_subnet.public]
-}
-
-data "aws_subnets" "private" {
-  filter {
-    name   = "vpc-id"
-    values = [aws_vpc.main.id]
-  }
-
-  tags = {
-    subnet_type = "private"
-  }
-  depends_on = [aws_subnet.private]
-}
-
-
 # VPC + IGW + NAT GW
 
 resource "aws_vpc" "main" {
@@ -47,7 +21,7 @@ resource "aws_nat_gateway" "nat" {
   count         = var.nat_gateway_enabled && var.internet_gateway_enabled ? 1 : 0
   allocation_id = aws_eip.nat[0].id
   region        = var.region
-  subnet_id     = element(data.aws_subnets.public.ids, count.index)
+  subnet_id     = element(values(aws_subnet.public)[*].id, count.index)
 
   tags = var.tags
 
