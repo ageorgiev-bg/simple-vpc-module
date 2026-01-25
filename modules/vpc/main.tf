@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
 
-  tags = merge(var.tags, { Name = "alex-deployment" })
+  tags = merge(var.tags, { "Provisioned by" = "Terraform" })
 }
 
 resource "aws_internet_gateway" "main" {
@@ -45,7 +45,7 @@ resource "aws_default_route_table" "main" {
 
   route = []
 
-  tags = merge(var.tags, { Name = "default-route-table" })
+  # tags = merge(var.tags, { Name = "default-route-table" })
 }
 
 resource "aws_route_table" "private_ipv4_egress" {
@@ -58,7 +58,7 @@ resource "aws_route_table" "private_ipv4_egress" {
     gateway_id = aws_nat_gateway.nat[0].id
   }
 
-  tags = merge(var.tags, { Name = "natgw-ipv4-egress" })
+  # tags = merge(var.tags, { Name = "natgw-ipv4-egress" })
 }
 
 resource "aws_route_table_association" "private_zones" {

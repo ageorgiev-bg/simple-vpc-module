@@ -7,7 +7,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.28.0 |
 
 ## Modules
 
@@ -49,7 +49,6 @@ No modules.
 | <a name="input_interface_endpoint_s3"></a> [interface\_endpoint\_s3](#input\_interface\_endpoint\_s3) | A boolean flag to enable/disable the S3 interface endpoint. | `bool` | n/a | yes |
 | <a name="input_interface_endpoint_ssm"></a> [interface\_endpoint\_ssm](#input\_interface\_endpoint\_ssm) | A boolean flag to enable/disable the SSM interface endpoint. | `bool` | n/a | yes |
 | <a name="input_internet_gateway_enabled"></a> [internet\_gateway\_enabled](#input\_internet\_gateway\_enabled) | A boolean flag to enable/disable the internet gateway. | `bool` | n/a | yes |
-| <a name="input_ipv4_cidr_block_association_timeouts"></a> [ipv4\_cidr\_block\_association\_timeouts](#input\_ipv4\_cidr\_block\_association\_timeouts) | Timeouts (in `go` duration format) for creating and destroying IPv4 CIDR block associations. | <pre>object({<br/>    create = string<br/>    delete = string<br/>  })</pre> | `null` | no |
 | <a name="input_ipv4_primary_cidr_block"></a> [ipv4\_primary\_cidr\_block](#input\_ipv4\_primary\_cidr\_block) | Primary VPC CIDR block. | `string` | n/a | yes |
 | <a name="input_nat_gateway_enabled"></a> [nat\_gateway\_enabled](#input\_nat\_gateway\_enabled) | A boolean flag to enable/disable the NAT gateway. | `bool` | n/a | yes |
 | <a name="input_private_subnets_config"></a> [private\_subnets\_config](#input\_private\_subnets\_config) | Private subnets config map. | `map(any)` | n/a | yes |
@@ -61,5 +60,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_cidr_block"></a> [cidr\_block](#output\_cidr\_block) | VPC cidr\_block. |
+| <a name="output_private_subnets"></a> [private\_subnets](#output\_private\_subnets) | VPC cidr\_block. |
+| <a name="output_public_subnets"></a> [public\_subnets](#output\_public\_subnets) | VPC cidr\_block. |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | VPC id. |
 <!-- END_TF_DOCS -->

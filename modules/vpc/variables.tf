@@ -1,3 +1,10 @@
+locals {
+  availability_zones = distinct([
+    for s in aws_subnet.private : s.availability_zone
+  ])
+}
+
+
 variable "region" {
   description = "AWS Region."
   type        = string
@@ -18,6 +25,11 @@ variable "ipv4_primary_cidr_block" {
   type        = string
 }
 
+variable "vpc_name" {
+  description = "VPC name."
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to assign to the resource."
 }
@@ -35,14 +47,14 @@ variable "nat_gateway_enabled" {
   type        = bool
 }
 
-variable "ipv4_cidr_block_association_timeouts" {
-  type = object({
-    create = string
-    delete = string
-  })
-  description = "Timeouts (in `go` duration format) for creating and destroying IPv4 CIDR block associations."
-  default     = null
-}
+# variable "ipv4_cidr_block_association_timeouts" {
+#   type = object({
+#     create = string
+#     delete = string
+#   })
+#   description = "Timeouts (in `go` duration format) for creating and destroying IPv4 CIDR block associations."
+#   default     = null
+# }
 
 variable "private_subnets_config" {
   description = "Private subnets config map."
