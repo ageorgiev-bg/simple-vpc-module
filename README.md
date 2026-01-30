@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 ## Simple VPC module with:
 - Default VPC route table ensures privacy for each new subnet
-- 2 AZs with public and private subnets for each
+- variable number AZs with public and private subnets for each including DB subnet group for private subnets
 - Single AZ NAT Gateway (No HA setup!)
 - Internet Gateway
 - VPC Private Interface Endpoints for:
@@ -11,7 +11,6 @@
     - ssmmessages
     - ec2messages
 
-  No Security Groups are configured for them
 
 ## Requirements
 
